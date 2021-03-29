@@ -7,8 +7,10 @@ class EmailValidationError extends FieldError {
 }
 
 class EmailForm extends StringFieldForm {
-  const EmailForm.dirty({String value, bool requiredField}) : super.dirty(value: value, requiredField: requiredField);
-  const EmailForm.pure({bool requiredField = false}) : super.pure(requiredField);
+  const EmailForm.dirty({String value, bool requiredField})
+      : super.dirty(value: value, requiredField: requiredField);
+  const EmailForm.pure({bool requiredField = false})
+      : super.pure(requiredField);
 
   static constructor(String value, bool requiredField) {
     return EmailForm.dirty(value: value, requiredField: requiredField);

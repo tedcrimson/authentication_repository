@@ -8,7 +8,8 @@ import 'package:meta/meta.dart';
 part 'authentication_event.dart';
 part 'authentication_state.dart';
 
-class AuthenticationBloc<T, TT> extends Bloc<AuthenticationEvent, AuthenticationState> {
+class AuthenticationBloc<T, TT>
+    extends Bloc<AuthenticationEvent, AuthenticationState> {
   AuthenticationBloc({
     @required AuthenticationRepository authenticationRepository,
   })  : assert(authenticationRepository != null),

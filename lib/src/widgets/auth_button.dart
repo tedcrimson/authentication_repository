@@ -14,18 +14,22 @@ class AuthButton<T extends AuthCubit> extends LoginBuilder<ButtonBuilder> {
       buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         if (builder != null) {
-          return builder(context, null, state, context.bloc<T>().callAction);
+          return builder(context, null, state, context.watch<T>().callAction);
         }
         return state.status.isSubmissionInProgress
             ? const CircularProgressIndicator()
-            : RaisedButton(
+            : ElevatedButton(
                 key: key,
                 child: const Text('Next'),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
+                style: ElevatedButton.styleFrom(
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
+                  primary: const Color(0xFFFFD600),
                 ),
-                color: const Color(0xFFFFD600),
-                onPressed: state.status.isPure || state.status.isValid ? context.bloc<T>().callAction : null,
+                onPressed: state.status.isPure || state.status.isValid
+                    ? context.watch<T>().callAction
+                    : null,
               );
       },
     );

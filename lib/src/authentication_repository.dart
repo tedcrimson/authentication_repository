@@ -19,14 +19,16 @@ abstract class AuthenticationRepository<T, TT> {
   AuthenticationStatus get status => _status;
 
   @mustCallSuper
-  Future logInWithEmailAndPassword({@required String email, @required String password}) async {
+  Future logInWithEmailAndPassword(
+      {@required String email, @required String password}) async {
     assert(email != null);
     assert(password != null);
     await Future.delayed(const Duration(milliseconds: 300), logIn);
   }
 
   @mustCallSuper
-  Future loginWithUserName({@required String username, @required String password}) async {
+  Future loginWithUserName(
+      {@required String username, @required String password}) async {
     assert(username != null);
     assert(password != null);
     await Future.delayed(const Duration(milliseconds: 300), logIn);

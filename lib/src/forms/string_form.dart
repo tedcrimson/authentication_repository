@@ -1,7 +1,8 @@
 import 'field_form.dart';
 
 class StringFieldForm extends FieldForm<String> {
-  const StringFieldForm.dirty({String value, bool requiredField}) : super.dirty(value ?? '', requiredField ?? false);
+  const StringFieldForm.dirty({String value, bool requiredField})
+      : super.dirty(value ?? '', requiredField ?? false);
 
   const StringFieldForm.pure(bool requiredField) : super.pure(requiredField);
   static constructor(String value, bool requiredField) =>

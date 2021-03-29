@@ -13,17 +13,19 @@ class InputField<T extends AuthCubit> extends LoginBuilder<InputBuilder> {
       buildWhen: (previous, current) {
         var oldForm = previous.forms[keyString]?.form;
         var newForm = current.forms[keyString]?.form;
-        return oldForm?.value != newForm?.value; //|| oldForm?.errorText != newForm?.errorText;
+        return oldForm?.value !=
+            newForm?.value; //|| oldForm?.errorText != newForm?.errorText;
       },
       // buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         var form = state.forms[keyString].form;
         if (builder != null) {
-          return builder(context, form, state, (value) => context.bloc<T>().formChange(keyString, value));
+          return builder(context, form, state,
+              (value) => context.watch<T>().formChange(keyString, value));
         }
         return TextField(
           // key: const Key('loginForm_emailInput_textField'),
-          onChanged: (email) => context.bloc<T>().formChange(keyString, email),
+          onChanged: (email) => context.watch<T>().formChange(keyString, email),
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             labelText: 'credential',

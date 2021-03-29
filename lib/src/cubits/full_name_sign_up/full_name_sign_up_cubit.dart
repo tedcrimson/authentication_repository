@@ -34,7 +34,12 @@ class FullNameSignUpCubit extends AuthCubit<FullNameSignUpState> {
     emit(state.copyWith(status: FormzStatus.submissionInProgress));
     try {
       await authenticationRepository.signUp(
-        fields: [state.firstName.value, state.lastName.value, state.email.value, state.password.value],
+        fields: [
+          state.firstName.value,
+          state.lastName.value,
+          state.email.value,
+          state.password.value
+        ],
       );
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
       return true;

@@ -15,7 +15,8 @@ class UserInvalidError extends FieldError {
 }
 
 class UsernameForm extends StringFieldForm {
-  UsernameForm.dirty({String value, bool requiredField}) : super.dirty(value: value, requiredField: requiredField);
+  UsernameForm.dirty({String value, bool requiredField})
+      : super.dirty(value: value, requiredField: requiredField);
 
   UsernameForm.pure() : super.pure(true);
 
